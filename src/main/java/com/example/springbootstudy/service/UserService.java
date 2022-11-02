@@ -1,7 +1,10 @@
 package com.example.springbootstudy.service;
 
+import com.example.springbootstudy.mapper.UserMapper;
+import com.example.springbootstudy.model.User;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
 
 /**
  * @title: UserService
@@ -10,6 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @Version 1.0
  */
 @Service
-@ResponseBody
 public class UserService {
+    @Resource
+    private UserMapper userMapper;
+
+    public User getUserById(Integer id) {
+        return userMapper.getUserById(id);
+    }
 }

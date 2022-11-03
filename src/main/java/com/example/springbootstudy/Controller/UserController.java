@@ -2,6 +2,7 @@ package com.example.springbootstudy.Controller;
 
 import com.example.springbootstudy.model.User;
 import com.example.springbootstudy.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,5 +29,13 @@ public class UserController {
             return null;
         }
         return userService.getUserById(id);
+    }
+    @ResponseBody
+    @RequestMapping("/update")
+    public int update(Integer id,String username){
+        if(id == null || username == null){
+            return -1;
+        }
+        return userService.update(id,username);
     }
 }

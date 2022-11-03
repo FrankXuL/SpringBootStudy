@@ -2,7 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.springbootstudy.mapper.UserMapper">
+    <!--根据用户id查询用户-->
     <select id="getUserById" resultType="com.example.springbootstudy.model.User">
         select * from userinfo where id = ${id}
     </select>
-</mapper>
+    <!--插入一个用户-->
+    <insert id="insert">
+        insert into userinfo (username, password, createtime, updatetime, state)
+        values (#{username},#{password},#{crearetime},#{upadtetime},#{state})
+    </insert>
+    <!--根据用户修改名称-->
+    <update id="updateuser">
+        update userinfo set username = #{username} where id = ${id}
+    </update>
+    <delete id="deleteuser">
+        delete userinfo fro
+    </delete>
+ </mapper>

@@ -20,4 +20,9 @@ public class UserService {
     public User getUserById(Integer id) {
         return userMapper.getUserById(id);
     }
+
+    public int update(Integer id, String username) {
+        return userMapper.updateuser(id, username);
+    }
+
 }

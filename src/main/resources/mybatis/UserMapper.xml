@@ -4,18 +4,21 @@
 <mapper namespace="com.example.springbootstudy.mapper.UserMapper">
     <!--根据用户id查询用户-->
     <select id="getUserById" resultType="com.example.springbootstudy.model.User">
-        select * from userinfo where id = ${id}
+        select * from userinfo where id = #{id}
     </select>
     <!--插入一个用户-->
     <insert id="insert">
-        insert into userinfo (username, password, createtime, updatetime, state)
-        values (#{username},#{password},#{crearetime},#{upadtetime},#{state})
+        insert into userinfo (username, password,photo,state) values (#{username},#{password},#{photo},1)
+    </insert>
+    <!--插入一个用户,返回自增id-->
+    <insert id="insert2" useGeneratedKeys="true" keyProperty="id">
+        insert into userinfo (username, password,photo,state) values (#{username},#{password},#{photo},1)
     </insert>
     <!--根据用户修改名称-->
-    <update id="updateuser">
-        update userinfo set username = #{username} where id = ${id}
+    <update id="update">
+        update userinfo set username = #{username} where id = #{id}
     </update>
-    <delete id="deleteuser">
-        delete userinfo fro
+    <delete id="delete">
+        delete from userinfo where id =#{id}
     </delete>
  </mapper>

@@ -2,6 +2,7 @@ package com.example.springbootstudy.service;
 
 import com.example.springbootstudy.mapper.UserMapper;
 import com.example.springbootstudy.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,8 +22,18 @@ public class UserService {
         return userMapper.getUserById(id);
     }
 
-    public int update(Integer id, String username) {
-        return userMapper.updateuser(id, username);
+    public Integer update(Integer id, String username) {
+        return userMapper.update(id, username);
     }
 
+    public Integer insert(User user) {
+        return userMapper.insert(user);
+    }
+
+    public Integer delete(@Param("id") Integer id) {
+        return userMapper.delete(id);
+    }
+    public void insert2(@Param("id") Integer id){
+        userMapper.insert2(id);
+    }
 }

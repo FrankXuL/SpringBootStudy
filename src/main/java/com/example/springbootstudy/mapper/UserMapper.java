@@ -14,7 +14,12 @@ import org.apache.ibatis.annotations.Param;
 public interface UserMapper {
     //根据用户id查询
     User getUserById(@Param("id") Integer id);
-    Integer updateuser(@Param("id") Integer id, @Param("username") String username);
+
+    Integer update(@Param("id") Integer id, @Param("username") String username);
+
     Integer insert(User user);
 
+    Integer delete(@Param("id") Integer id);
+
+    void insert2(@Param("id") Integer id);
 }
